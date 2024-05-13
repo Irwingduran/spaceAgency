@@ -63,3 +63,53 @@ const onResize = () => {
 }
 
 window.addEventListener('resize', onResize);
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Cargar el archivo JSON
+    fetch("data.json")
+        .then(response => response.json())
+        .then(data => {
+            // Extraer y mostrar destinos
+            const destinations = data.destinations;
+            const destinationsContainer = document.getElementById("destinations");
+            destinations.forEach(destination => {
+                const destinationDiv = document.createElement("div");
+                destinationDiv.innerHTML = `
+                    <h2>${destination.name}</h2>
+                    <img src="${destination.images.png}" alt="${destination.name}">
+                    <p>${destination.description}</p>
+                    <p>Distance: ${destination.distance}</p>
+                    <p>Travel Time: ${destination.travel}</p>
+                `;
+                destinationsContainer.appendChild(destinationDiv);
+            });
+
+            // Extraer y mostrar tripulación
+            const crew = data.crew;
+            const crewContainer = document.getElementById("crew");
+            crew.forEach(member => {
+                const memberDiv = document.createElement("div");
+                memberDiv.innerHTML = `
+                    <h2>${member.name}</h2>
+                    <img src="${member.images.png}" alt="${member.name}">
+                    <p>Role: ${member.role}</p>
+                    <p>Bio: ${member.bio}</p>
+                `;
+                crewContainer.appendChild(memberDiv);
+            });
+
+            // Extraer y mostrar tecnología
+            const technology = data.technology;
+            const technologyContainer = document.getElementById("technology");
+            technology.forEach(tech => {
+                const techDiv = document.createElement("div");
+                techDiv.innerHTML = `
+                    <h2>${tech.name}</h2>
+                    <img src="${tech.images.portrait}" alt="${tech.name}">
+                    <p>${tech.description}</p>
+                `;
+                technologyContainer.appendChild(techDiv);
+            });
+        })
+        .catch(error => console.log("Error loading JSON file:", error));
+});
