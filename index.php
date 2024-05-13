@@ -286,6 +286,6 @@
     </div>
   </footer>
 
-	<script src="app.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
