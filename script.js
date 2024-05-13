@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Get today's date
+    // Obtener la fecha de hoy
     var today = new Date().toISOString().split('T')[0]
 
-    // Set the minimum value of the departure date field to today
+    // Fijar el valor mínimo del campo de fecha de salida en hoy
     document.getElementById('departure_date').setAttribute('min', today)
 
-    // Set the minimum value of the return date field to the selected departure date
+    //  // Establezca el valor mínimo del campo de fecha de retorno en la fecha de salida seleccionada
     document
         .getElementById('departure_date')
         .addEventListener('change', function () {
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .setAttribute('min', selectedDepartureDate)
         })
 })
+
 
 
 const menu = document.getElementById('menu');
