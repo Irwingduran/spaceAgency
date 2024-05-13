@@ -24,23 +24,4 @@ if(isset($_POST['book_flight'])) {
     $cvv = $_POST['cvv'];
     $billing_address = $_POST['billing_address'];
 
-    // Insertar los datos en la tabla 
-    $book_flight = "INSERT INTO flight_bookings (travelers_name, gender, birthdate, nationality, contact_number, departure_airport, destination_airport, departure_date, return_date, cabin_class, passenger_adults, passenger_children, passenger_infants, passport_number, passport_expiration, country_of_issue, cardholder_name, card_number, expiration_date, cvv, billing_address) VALUES ('$travelers_name', '$gender', '$birthdate', '$nationality', '$contact_number', '$departure_airport', '$destination_airport', '$departure_date', '$return_date', '$cabin_class', '$passenger_adults', '$passenger_children', '$passenger_infants', '$passport_number', '$passport_expiration', '$country_of_issue', '$cardholder_name', '$card_number', '$expiration_date', '$cvv', '$billing_address')";
-
-    if(mysqli_query($con, $book_flight)) {
-
-        $booking_id = mysqli_insert_id($con);
-        $select_query = "SELECT * FROM flight_bookings WHERE id = $booking_id";
-        $result = mysqli_query($con, $select_query);
-        $booking_data = mysqli_fetch_assoc($result);
-
-        session_start();
-        $_SESSION['booking_data'] = $booking_data;
-
-        header("Location: success.php");
-        exit();
-
-    } else {
-        echo mysqli_error($con);
-    }
-}
+   
