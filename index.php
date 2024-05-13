@@ -73,7 +73,7 @@
      <!-- Boostrap Section Book Start -->
   <section class="book" id="book">
     <div class="container">
-    div class="main-text">
+    <div class="main-text">
         <h1>Book</h1>
       </div>
 
